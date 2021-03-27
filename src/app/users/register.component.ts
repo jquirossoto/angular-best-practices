@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { UserRepositoryService } from "app/services/user-repository.service";
+import { UserRepositoryService } from "app/core/user-repository.service";
 
 @Component({
   styleUrls: ['./register.component.css'],
@@ -34,6 +34,14 @@ export class RegisterComponent {
 
   registerUser(user) {
     this.saving=true;
+    this.saveAndRedirect(user);
+  }
+
+  cancel() {
+    this.router.navigate(['/']);
+  }
+  
+  private saveAndRedirect(user) {
     this.dataRepository.saveUser(user)
       .subscribe(
         null,
@@ -41,7 +49,4 @@ export class RegisterComponent {
         () => this.router.navigate(['/catalog']));
   }
 
-  cancel() {
-    this.router.navigate(['/']);
-  }
 }

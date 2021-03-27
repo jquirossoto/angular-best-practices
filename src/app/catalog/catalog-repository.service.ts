@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import { UserRepositoryService } from 'app/services/user-repository.service';
+import { Observable, Subject } from 'rxjs';
+import { UserRepositoryService } from 'app/core/user-repository.service';
 
 @Injectable()
 export class CatalogRepositoryService {
